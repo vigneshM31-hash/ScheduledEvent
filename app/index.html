@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>A Template App</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script async src="{{{appclient}}}"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+  </head>
+
+  <body>
+    <div class="main">
+      <p>Utilize this template code to build your App</p>
+      <p id="apptext"></p>
+    </div>
+    <div>
+      <label>Priority:</label>
+      <select id="priority">
+        <option value="1">Low</option>
+        <option value="2">Medium</option>
+        <option value="3">High</option>
+        <option value="4">Urgent</option>
+      </select><br>
+    
+      <label>Status:</label>
+      <select id="status">
+        <option value="2">Open</option>
+        <option value="3">Pending</option>
+        <option value="4">Resolved</option>
+        <option value="5">Closed</option>
+      </select><br>
+    
+      <label>Notes:</label>
+      <textarea id="notes"></textarea><br>
+    
+      <label>Schedule Time:</label>
+      <input type="datetime-local" id="scheduleTime" step="1" /><br>
+    
+      <button id="submitBtn">Schedule Update</button>
+    </div>
+    
+  </body>
+
+  <script defer src="scripts/app.js"></script>
+  <script async type="module" src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.esm.js"></script>
+  <script async nomodule src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.js"></script>
+</html>

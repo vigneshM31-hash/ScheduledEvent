@@ -1,0 +1,24 @@
+
+{
+  "domain_name": {
+    "display_name": "Freshdesk Domain Name",
+    "description": "Please enter your domain name (e.g., 'yourcompany')",
+    "type": "text",
+    "required": true
+  },
+  "api_key": {
+    "display_name": "API Key",
+    "description": "Please enter your Freshdesk API key",
+    "type": "text",
+    "secure": true,
+    "required": true
+  }
+}
+
+
+
+
+
+
+
+
