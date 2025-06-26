@@ -9,16 +9,16 @@ exports = {
   },
   
   onScheduledEventHandler: async function(payload) {
-    console.log("🚀 Scheduled function triggered with data:", payload);
+    console.log(" Scheduled function triggered with data:", payload);
     const { ticketId, priority, status} = payload;
     try {
       const response = await $request.invokeTemplate("updateTicket", {
         context: { id: ticketId },
         body: JSON.stringify({ "priority":priority, "status":status })
       });
-      console.log(`✅ Ticket ${ticketId} updated successfully`, response)   ;
+      console.log(`Ticket ${ticketId} updated successfully`, response)   ;
     } catch (e) {
-      console.error("❌ Ticket update failed:", e.message || e.response || e);
+      console.error("Ticket update failed:", e.message || e.response || e);
     }
     try{
         const noteResponse=await $request.invokeTemplate("addNote", {
@@ -26,25 +26,25 @@ exports = {
           body: JSON.stringify({ body: notes, private: false })
         });
   
-        console.log(`✅ Ticket note ${ticketId} updated by schedule`,noteResponse);
+        console.log(` Ticket note ${ticketId} updated by schedule`,noteResponse);
       } catch (e) {
-        console.error("❌ Adding note failed:", e.message|| e.response || e);
+        console.error(" Adding note failed:", e.message|| e.response || e);
       }
   },
  
   scheduleTicketUpdate: async function (payload) {
     try {
-          console.log("📥 Received scheduleTicketUpdate args:", payload);
+          console.log("Received scheduleTicketUpdate args:", payload);
     
           const { ticketId, priority, status, notes, scheduleTime } = payload.parameters;
     
           if (!ticketId || !priority || !status || !scheduleTime) {
-            console.error("⚠️ Missing required data");
+            console.error("⚠ Missing required data");
             throw new Error("Missing required fields");
           }
           const time=new Date(scheduleTime);
           const scheduleName = "updateTicket"; 
-          console.log("🕑 Scheduling with name:", scheduleName, "at:", time);
+          console.log(" Scheduling with name:", scheduleName, "at:", time);
     
           await $schedule.create({
             name:time,
@@ -58,15 +58,15 @@ exports = {
 
           });
     
-          console.log(`✅ Scheduled update for ticket ${ticketId} at ${scheduleTime}`);
+          console.log( Scheduled update for ticket ${ticketId} at ${scheduleTime}`);
         } catch (e) {
-          console.error("❌ scheduleTicketUpdate failed:", {
+          console.error(" scheduleTicketUpdate failed:", {
             message: e.message,
             stack: e.stack
           });
           throw e;
         }
-    console.log("🚀 Scheduled function triggered with data:", payload.parameters);
+    console.log("Scheduled function triggered with data:", payload.parameters);
     const { ticketId, priority, status, notes } = payload.parameters;
     console.log(priority, status, notes,ticketId);
 
@@ -76,9 +76,9 @@ exports = {
         context: { id: ticketId },
         body: JSON.stringify({ priority, status })
       });
-      console.log(`✅ Ticket ${ticketId} updated successfully`, response);
+      console.log(` Ticket ${ticketId} updated successfully`, response);
     } catch (e) {
-      console.error("❌ Ticket update failed:", e.message || e.response || e);
+      console.error(" Ticket update failed:", e.message || e.response || e);
     }  
 
 
