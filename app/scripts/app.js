@@ -9,7 +9,7 @@ async function init() {
 }
  async function scheduleTicketUpdate() {//frontend call
   const data = await client.data.get("ticket");
-  console.log("📥 Ticket data:", data.ticket.id);
+  console.log(" Ticket data:", data.ticket.id);
   document.getElementById("submitBtn").addEventListener("click", async () => {
     const priority = parseInt(document.getElementById("priority").value);
     const status = parseInt(document.getElementById("status").value);
@@ -23,13 +23,13 @@ async function init() {
       notes,
       scheduleTime: scheduleTime
     };
-    console.log("🕐 Scheduling for:", scheduleTime);
+    console.log(" Scheduling for:", scheduleTime);
 
     await client.request.invoke("scheduleTicketUpdate", {
       parameters: payload
     });
 
-   console.log("✅ Ticket update scheduled!");
+   console.log(" Ticket update scheduled!");
   });
 }
 
