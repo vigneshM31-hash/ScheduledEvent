@@ -1,0 +1,31 @@
+{
+  "platform-version": "2.3",
+  "product": {
+    "freshdesk": {
+      "location": {
+        "ticket_sidebar": {
+          "url": "index.html",
+          "icon": "styles/images/icon.svg"
+        }
+      },
+      "events": {
+        "onScheduledEvent": {
+          "handler": "onScheduledEventHandler"
+        }
+      },
+      "functions": {
+        "scheduleTicketUpdate": {}
+      },
+      "requests":{
+        "getTickets":{},
+        "updateTicket": {},
+        "createNotes": {}
+      }
+    }
+
+  },
+  "engines": {
+    "node": "18.12.1",
+    "fdk": "9.5.0"
+  }
+}

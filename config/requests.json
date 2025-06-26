@@ -1,0 +1,41 @@
+
+{
+  "getTickets":{
+      "schema": {
+        "method": "GET",
+        "host": "<%= iparam.domain_name %>.freshdesk.com",
+        "path": "/api/v2/tickets",
+        "headers": {
+        "Authorization": "Bearer <%= encode(iparam.api_key) %>",
+        "Content-Type": "application/json"
+        }
+      }
+    },
+      "updateTicket": {
+        "schema": {
+        "protocol": "https",
+        "method": "PUT",
+        "host": "<%= iparam.domain_name %>.freshdesk.com",
+        "path": "/api/v2/tickets/<%= context.id %>",
+        "headers": {
+          "Authorization": "Bearer <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+      "createNotes": {
+        "schema": {
+         "protocol":"https",
+        "host": "<%= iparam.domain_name %>.freshdesk.com",
+        "path": "/api/v2/tickets/<%= context.id %>/notes",
+        "method": "POST",
+        "headers": {
+          "Authorization": "Bearer <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+        }
+      }
+    }
+    
+
+
+} 
